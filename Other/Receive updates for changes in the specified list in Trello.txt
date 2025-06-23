@@ -1,0 +1,38 @@
+================================================================================
+WORKFLOW: Receive updates for changes in the specified list in Trello
+================================================================================
+
+📋 BASIC INFORMATION
+------------------------------
+ID: 491
+Name: Receive updates for changes in the specified list in Trello
+Total Views: 1,947
+Created At: 2020-07-12T09:30:44.535Z
+Purchase URL: None
+
+👤 AUTHOR INFORMATION
+------------------------------
+Name: tanaypant
+Username: tanay1337
+Verified: ✅ Yes
+
+📊 RAW DATA (JSON)
+------------------------------
+{
+  "id": 491,
+  "name": "Receive updates for changes in the specified list in Trello",
+  "totalViews": 1947,
+  "purchaseUrl": null,
+  "user": {
+    "id": 3798,
+    "name": "tanaypant",
+    "username": "tanay1337",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/0cef0266ab81fd7159b2d3d681aeb30fe1953b287de10f3e6d60e58d866ad0b0?r=pg&d=retro&size=200"
+  },
+  "description": "",
+  "createdAt": "2020-07-12T09:30:44.535Z",
+  "nodes": []
+}

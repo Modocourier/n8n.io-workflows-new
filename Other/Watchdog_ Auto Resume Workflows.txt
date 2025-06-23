@@ -1,0 +1,54 @@
+================================================================================
+WORKFLOW: Watchdog: Auto Resume Workflows
+================================================================================
+
+📋 BASIC INFORMATION
+------------------------------
+ID: 2166
+Name: Watchdog: Auto Resume Workflows
+Total Views: 857
+Created At: 2024-03-06T23:01:10.753Z
+Purchase URL: None
+
+👤 AUTHOR INFORMATION
+------------------------------
+Name: Darien Kindlund
+Username: dkindlund
+Verified: ❌ No
+Bio: 15+ years in Security Research. Built various n8n automations to leverage LLMs for advanced research and analysis.
+Links: https://darien.kindlund.com
+
+📝 DESCRIPTION
+------------------------------
+If you have multiple users managing workflows, there may come a time where a user “accidentally” turns off a workflow. Or, if you have workflows that automatically turn off other workflows, that code might “accidentally” turn off the wrong one.
+
+In either case, here’s a workflow that can attempt to “auto-start” accidentally disabled workflows:
+
+
+How it works:
+
+When activated, then every 4 hours, the workflow will search all other workflows that have the auto_resume:true tag present.
+If any other workflow has auto_resume:true set but is currently turned off, then this workflow will turn it back on.
+
+Of course, this watchdog won’t work if the watchdog workflow is turned off. That said, we’ve found this useful in recovering from accidental actions that cause production workflows to be turned off.
+
+📊 RAW DATA (JSON)
+------------------------------
+{
+  "id": 2166,
+  "name": "Watchdog: Auto Resume Workflows",
+  "totalViews": 857,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91520,
+    "name": "Darien Kindlund",
+    "username": "dkindlund",
+    "bio": "15+ years in Security Research. Built various n8n automations to leverage LLMs for advanced research and analysis.",
+    "verified": false,
+    "links": "[\"https://darien.kindlund.com\"]",
+    "avatar": "https://gravatar.com/avatar/78b885c599fd95ff121b86393f5621d6db0430aa9c28d0aee0fde0202642fda6?r=pg&d=retro&size=200"
+  },
+  "description": "If you have multiple users managing workflows, there may come a time where a user “accidentally” turns off a workflow. Or, if you have workflows that automatically turn off other workflows, that code might “accidentally” turn off the wrong one.\n\nIn either case, here’s a workflow that can attempt to “auto-start” accidentally disabled workflows:\n\n\nHow it works:\n\nWhen activated, then every 4 hours, the workflow will search all other workflows that have the auto_resume:true tag present.\nIf any other workflow has auto_resume:true set but is currently turned off, then this workflow will turn it back on.\n\nOf course, this watchdog won’t work if the watchdog workflow is turned off. That said, we’ve found this useful in recovering from accidental actions that cause production workflows to be turned off.",
+  "createdAt": "2024-03-06T23:01:10.753Z",
+  "nodes": []
+}

@@ -1,0 +1,300 @@
+================================================================================
+WORKFLOW: Tesla News and Sentiment Analyst Tool (Powered by DeepSeek Chat)
+================================================================================
+
+📋 BASIC INFORMATION
+------------------------------
+ID: 4093
+Name: Tesla News and Sentiment Analyst Tool (Powered by DeepSeek Chat)
+Total Views: 988
+Created At: 2025-05-16T08:49:30.606Z
+Purchase URL: None
+
+👤 AUTHOR INFORMATION
+------------------------------
+Name: Don Jayamaha Jr
+Username: don-the-gem-dealer
+Verified: ✅ Yes
+Bio: With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.
+Links: https://www.linkedin.com/in/donjayamahajr/
+
+📝 DESCRIPTION
+------------------------------
+📰 This AI-powered agent performs real-time sentiment analysis on Tesla (TSLA) news to support trading decisions.
+It aggregates headlines from 5 trusted sources and uses DeepSeek Chat to classify sentiment and generate structured summaries. This tool is a critical sub-agent in the broader Tesla Quant Trading AI Agent system.
+
+ ⚠️ Not standalone — this agent is designed to be executed by the Tesla Quant Trading AI Agent.
+ ⚙️ Requires: DeepSeek Chat API Key
+
+🔌 Workflow Role
+
+This tool processes Tesla-related news and produces output like:
+
+{
+  "sentiment": "bullish",
+  "summary": "Tesla stock rallied today after strong delivery numbers and Cybertruck updates. Analysts remain optimistic.",
+  "topHeadlines": [
+    "Tesla beats Q2 delivery forecast – Yahoo Finance",
+    "Cybertruck ramps up in Texas – Electrek",
+    "Berlin Gigafactory expands battery production – CleanTechnica"
+  ]
+}
+
+Its output feeds directly into the master trading agent’s final trade report.
+
+📰 News Sources Used
+
+This agent collects real-time headlines from:
+
+Google News (filtered by “Tesla” or “TSLA”)
+Yahoo Finance (TSLA-specific feed)
+Electrek (Tesla archive)
+CleanTechnica (Tesla sustainability news)
+TeslaNorth (app/product release updates)
+
+These five tools are always queried together to ensure market-wide signal coverage.
+
+🤖 What the Agent Does
+
+Pulls headlines from all 5 Tesla-specific RSS feeds
+Uses DeepSeek Chat to:
+
+   Analyze narrative tone (bullish / bearish / neutral)
+   Identify macro/financial drivers
+   Generate a 2–3 sentence summary
+   Return top 3–5 headlines
+Outputs structured JSON for downstream use
+
+🛠️ Setup Instructions
+
+1. Install & Name
+
+Import this file and name it: Tesla_News_and_Sentiment_Analyst_Tool
+
+2. Add DeepSeek API Credentials
+
+Go to: Credentials → Add New → DeepSeek API
+Save as: DeepSeek account
+
+3. Internet Access Required
+
+Ensure RSS feeds can fetch live headlines
+Works best with a cloud-hosted n8n instance or tunnel-enabled local install
+
+4. Must Be Triggered by Parent
+
+Triggered via Execute Workflow by the Tesla Quant Trading AI Agent
+Requires these inputs:
+
+  message: optional query context
+  sessionId: passed to maintain short-term memory across executions
+
+🧠 Agent Architecture
+
+| Node Name                          | Function                                         |
+| ---------------------------------- | ------------------------------------------------ |
+| DeepSeek Chat Model              | Performs AI-based sentiment analysis             |
+| Tesla News and Sentiment Analyst | Combines results, formats output in strict JSON  |
+| Simple Memory                    | Stores session-level context (short-term memory) |
+| 5x RSS nodes                     | Aggregate Tesla news from trusted media outlets  |
+
+📌 Sticky Notes Included
+
+🟢 Trigger from Parent Workflow – Executed only by main TSLA agent
+🟠 News Feeds Overview – Lists and explains each of the 5 feeds
+🧠 DeepSeek Chat Notes – Describes LLM behavior and parsing role
+🔵 Short-Term Memory – Buffers sentiment context during user session
+📘 Sentiment Analyst Agent – Summarizes key responsibilities
+
+📎 Licensing & Attribution
+
+© 2025 Treasurium Capital Limited Company
+This architecture, workflow structure, and prompt design are licensed for educational and operational use only. Commercial resale or rebranding prohibited without authorization.
+
+🔗 Creator: Don Jayamaha
+🔗 Templates: https://n8n.io/creators/don-the-gem-dealer/
+
+🚀 Power your TSLA trading with AI-driven sentiment—built with DeepSeek Chat and 5 trusted news sources.
+This tool is required by the Tesla Quant Trading AI Agent.
+
+🔧 NODES USED
+------------------------------
+• AI Agent - Categories: AI, Langchain
+• Simple Memory - Categories: AI, Langchain
+• DeepSeek Chat Model - Categories: AI, Langchain
+
+Total Nodes: 3
+
+📊 RAW DATA (JSON)
+------------------------------
+{
+  "id": 4093,
+  "name": "Tesla News and Sentiment Analyst Tool (Powered by DeepSeek Chat)",
+  "totalViews": 988,
+  "purchaseUrl": null,
+  "user": {
+    "id": 93152,
+    "name": "Don Jayamaha Jr",
+    "username": "don-the-gem-dealer",
+    "bio": "With 12 years of experience as a Blockchain Strategist and Web3 Architect, I specialize in bridging the gap between traditional industries and decentralized technologies. My expertise spans tokenized assets, crypto payment integrations, and blockchain-driven market solutions.",
+    "verified": true,
+    "links": "[\"https://www.linkedin.com/in/donjayamahajr/\"]",
+    "avatar": "https://gravatar.com/avatar/95f70084b3fec5ed68a61eef6dc6128dfb085d865a02ed631d0853d2730696bf?r=pg&d=retro&size=200"
+  },
+  "description": "📰 This AI-powered agent performs real-time sentiment analysis on Tesla (TSLA) news to support trading decisions.\nIt aggregates headlines from 5 trusted sources and uses DeepSeek Chat to classify sentiment and generate structured summaries. This tool is a critical sub-agent in the broader Tesla Quant Trading AI Agent system.\n\n ⚠️ Not standalone — this agent is designed to be executed by the Tesla Quant Trading AI Agent.\n ⚙️ Requires: DeepSeek Chat API Key\n\n🔌 Workflow Role\n\nThis tool processes Tesla-related news and produces output like:\n\n{\n  \"sentiment\": \"bullish\",\n  \"summary\": \"Tesla stock rallied today after strong delivery numbers and Cybertruck updates. Analysts remain optimistic.\",\n  \"topHeadlines\": [\n    \"Tesla beats Q2 delivery forecast – Yahoo Finance\",\n    \"Cybertruck ramps up in Texas – Electrek\",\n    \"Berlin Gigafactory expands battery production – CleanTechnica\"\n  ]\n}\n\nIts output feeds directly into the master trading agent’s final trade report.\n\n📰 News Sources Used\n\nThis agent collects real-time headlines from:\n\nGoogle News (filtered by “Tesla” or “TSLA”)\nYahoo Finance (TSLA-specific feed)\nElectrek (Tesla archive)\nCleanTechnica (Tesla sustainability news)\nTeslaNorth (app/product release updates)\n\nThese five tools are always queried together to ensure market-wide signal coverage.\n\n🤖 What the Agent Does\n\nPulls headlines from all 5 Tesla-specific RSS feeds\nUses DeepSeek Chat to:\n\n   Analyze narrative tone (bullish / bearish / neutral)\n   Identify macro/financial drivers\n   Generate a 2–3 sentence summary\n   Return top 3–5 headlines\nOutputs structured JSON for downstream use\n\n🛠️ Setup Instructions\n\n1. Install & Name\n\nImport this file and name it: Tesla_News_and_Sentiment_Analyst_Tool\n\n2. Add DeepSeek API Credentials\n\nGo to: Credentials → Add New → DeepSeek API\nSave as: DeepSeek account\n\n3. Internet Access Required\n\nEnsure RSS feeds can fetch live headlines\nWorks best with a cloud-hosted n8n instance or tunnel-enabled local install\n\n4. Must Be Triggered by Parent\n\nTriggered via Execute Workflow by the Tesla Quant Trading AI Agent\nRequires these inputs:\n\n  message: optional query context\n  sessionId: passed to maintain short-term memory across executions\n\n🧠 Agent Architecture\n\n| Node Name                          | Function                                         |\n| ---------------------------------- | ------------------------------------------------ |\n| DeepSeek Chat Model              | Performs AI-based sentiment analysis             |\n| Tesla News and Sentiment Analyst | Combines results, formats output in strict JSON  |\n| Simple Memory                    | Stores session-level context (short-term memory) |\n| 5x RSS nodes                     | Aggregate Tesla news from trusted media outlets  |\n\n📌 Sticky Notes Included\n\n🟢 Trigger from Parent Workflow – Executed only by main TSLA agent\n🟠 News Feeds Overview – Lists and explains each of the 5 feeds\n🧠 DeepSeek Chat Notes – Describes LLM behavior and parsing role\n🔵 Short-Term Memory – Buffers sentiment context during user session\n📘 Sentiment Analyst Agent – Summarizes key responsibilities\n\n📎 Licensing & Attribution\n\n© 2025 Treasurium Capital Limited Company\nThis architecture, workflow structure, and prompt design are licensed for educational and operational use only. Commercial resale or rebranding prohibited without authorization.\n\n🔗 Creator: Don Jayamaha\n🔗 Templates: https://n8n.io/creators/don-the-gem-dealer/\n\n🚀 Power your TSLA trading with AI-driven sentiment—built with DeepSeek Chat and 5 trusted news sources.\nThis tool is required by the Tesla Quant Trading AI Agent.",
+  "createdAt": "2025-05-16T08:49:30.606Z",
+  "nodes": [
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 2,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1163,
+      "icon": "fa:database",
+      "name": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Memory"
+            ],
+            "Memory": [
+              "For beginners"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Simple Memory"
+      },
+      "iconData": {
+        "icon": "database",
+        "type": "icon"
+      },
+      "displayName": "Simple Memory",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1280,
+      "icon": "file:deepseek.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatdeepseek/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "DeepSeek Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+RGVlcFNlZWs8L3RpdGxlPjxwYXRoIGQ9Ik0yMy43NDggNC40ODJjLS4yNTQtLjEyNC0uMzY0LjExMy0uNTEyLjIzNC0uMDUxLjAzOS0uMDk0LjA5LS4xMzcuMTM2LS4zNzIuMzk3LS44MDYuNjU3LTEuMzczLjYyNi0uODI5LS4wNDYtMS41MzcuMjE0LTIuMTYzLjg0OC0uMTMzLS43ODItLjU3NS0xLjI0OC0xLjI0Ny0xLjU0OC0uMzUyLS4xNTYtLjcwOC0uMzExLS45NTUtLjY1LS4xNzItLjI0MS0uMjE5LS41MS0uMzA1LS43NzQtLjA1NS0uMTYtLjExLS4zMjMtLjI5My0uMzUtLjItLjAzMS0uMjc4LjEzNi0uMzU2LjI3Ni0uMzEzLjU3Mi0uNDM0IDEuMjAyLS40MjIgMS44NC4wMjcgMS40MzYuNjMzIDIuNTggMS44MzggMy4zOTMuMTM3LjA5My4xNzIuMTg3LjEyOS4zMjMtLjA4Mi4yOC0uMTguNTUyLS4yNjYuODMzLS4wNTUuMTc5LS4xMzcuMjE3LS4zMjkuMTRhNS41MjYgNS41MjYgMCAwMS0xLjczNi0xLjE4Yy0uODU3LS44MjgtMS42MzEtMS43NDItMi41OTctMi40NThhMTEuMzY1IDExLjM2NSAwIDAwLS42ODktLjQ3MWMtLjk4NS0uOTU3LjEzLTEuNzQzLjM4OC0xLjgzNi4yNy0uMDk4LjA5My0uNDMyLS43NzktLjQyOC0uODcyLjAwNC0xLjY3LjI5NS0yLjY4Ny42ODRhMy4wNTUgMy4wNTUgMCAwMS0uNDY1LjEzNyA5LjU5NyA5LjU5NyAwIDAwLTIuODgzLS4xMDJjLTEuODg1LjIxLTMuMzkgMS4xMDItNC40OTcgMi42MjNDLjA4MiA4LjYwNi0uMjMxIDEwLjY4NC4xNTIgMTIuODVjLjQwMyAyLjI4NCAxLjU2OSA0LjE3NSAzLjM2IDUuNjUzIDEuODU4IDEuNTMzIDMuOTk3IDIuMjg0IDYuNDM4IDIuMTQgMS40ODItLjA4NSAzLjEzMy0uMjg0IDQuOTk0LTEuODYuNDcuMjM0Ljk2Mi4zMjcgMS43OC4zOTcuNjMuMDU5IDEuMjM2LS4wMyAxLjcwNS0uMTI4LjczNS0uMTU2LjY4NC0uODM3LjQxOS0uOTYxLTIuMTU1LTEuMDA0LTEuNjgyLS41OTUtMi4xMTMtLjkyNiAxLjA5Ni0xLjI5NiAyLjc0Ni0yLjY0MiAzLjM5Mi03LjAwMy4wNS0uMzQ3LjAwNy0uNTY1IDAtLjg0NS0uMDA0LS4xNy4wMzUtLjIzNy4yMy0uMjU2YTQuMTczIDQuMTczIDAgMDAxLjU0NS0uNDc1YzEuMzk2LS43NjMgMS45Ni0yLjAxNSAyLjA5My0zLjUxNy4wMi0uMjMtLjAwNC0uNDY3LS4yNDctLjU4OHpNMTEuNTgxIDE4Yy0yLjA4OS0xLjY0Mi0zLjEwMi0yLjE4My0zLjUyLTIuMTYtLjM5Mi4wMjQtLjMyMS40NzEtLjIzNS43NjMuMDkuMjg4LjIwNy40ODYuMzcxLjczOS4xMTQuMTY3LjE5Mi40MTYtLjExMy42MDMtLjY3My40MTYtMS44NDItLjE0LTEuODk3LS4xNjctMS4zNjEtLjgwMi0yLjUtMS44Ni0zLjMwMS0zLjMwNy0uNzc0LTEuMzkzLTEuMjI0LTIuODg3LTEuMjk4LTQuNDgyLS4wMi0uMzg2LjA5My0uNTIyLjQ3Ny0uNTkyYTQuNjk2IDQuNjk2IDAgMDExLjUyOS0uMDM5YzIuMTMyLjMxMiAzLjk0NiAxLjI2NSA1LjQ2OCAyLjc3NC44NjguODYgMS41MjUgMS44ODcgMi4yMDIgMi44OTEuNzIgMS4wNjYgMS40OTQgMi4wODIgMi40OCAyLjkxNC4zNDguMjkyLjYyNS41MTQuODkxLjY3Ny0uODAyLjA5LTIuMTQuMTEtMy4wNTQtLjYxNHptMS02LjQ0YS4zMDYuMzA2IDAgMDEuNDE1LS4yODcuMzAyLjMwMiAwIDAxLjIuMjg4LjMwNi4zMDYgMCAwMS0uMzEuMzA3LjMwMy4zMDMgMCAwMS0uMzA0LS4zMDh6bTMuMTEgMS41OTZjLS4yLjA4MS0uMzk5LjE1MS0uNTkuMTZhMS4yNDUgMS4yNDUgMCAwMS0uNzk4LS4yNTRjLS4yNzQtLjIzLS40Ny0uMzU4LS41NTItLjc1OGExLjczIDEuNzMgMCAwMS4wMTYtLjU4OGMuMDctLjMyNy0uMDA4LS41MzctLjIzOS0uNzI3LS4xODctLjE1Ni0uNDI2LS4xOTktLjY4OC0uMTk5YS41NTkuNTU5IDAgMDEtLjI1NC0uMDc4Yy0uMTEtLjA1NC0uMi0uMTktLjExNC0uMzU4LjAyOC0uMDU0LjE2LS4xODYuMTkyLS4yMS4zNTYtLjIwMi43NjctLjEzNiAxLjE0Ni4wMTYuMzUyLjE0NC42MTguNDA4IDEuMDAxLjc4Mi4zOTEuNDUxLjQ2Mi41NzYuNjg1LjkxNC4xNzYuMjY1LjMzNi41MzcuNDQ1Ljg0OC4wNjcuMTk1LS4wMTkuMzU0LS4yNS40NTJ6IiBmaWxsPSIjNEQ2QkZFIj48L3BhdGg+PC9zdmc+Cg=="
+      },
+      "displayName": "DeepSeek Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

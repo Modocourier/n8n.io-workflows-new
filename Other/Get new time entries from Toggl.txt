@@ -1,0 +1,38 @@
+================================================================================
+WORKFLOW: Get new time entries from Toggl
+================================================================================
+
+📋 BASIC INFORMATION
+------------------------------
+ID: 517
+Name: Get new time entries from Toggl
+Total Views: 927
+Created At: 2020-07-15T09:31:08.878Z
+Purchase URL: None
+
+👤 AUTHOR INFORMATION
+------------------------------
+Name: tanaypant
+Username: tanay1337
+Verified: ✅ Yes
+
+📊 RAW DATA (JSON)
+------------------------------
+{
+  "id": 517,
+  "name": "Get new time entries from Toggl",
+  "totalViews": 927,
+  "purchaseUrl": null,
+  "user": {
+    "id": 3798,
+    "name": "tanaypant",
+    "username": "tanay1337",
+    "bio": null,
+    "verified": true,
+    "links": "[]",
+    "avatar": "https://gravatar.com/avatar/0cef0266ab81fd7159b2d3d681aeb30fe1953b287de10f3e6d60e58d866ad0b0?r=pg&d=retro&size=200"
+  },
+  "description": "",
+  "createdAt": "2020-07-15T09:31:08.878Z",
+  "nodes": []
+}
